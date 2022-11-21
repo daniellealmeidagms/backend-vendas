@@ -20,3 +20,5 @@ class Curso {
   @Column()
   ativo: boolean;
 }
+
+export default Curso;
