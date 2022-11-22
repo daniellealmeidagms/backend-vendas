@@ -2,7 +2,7 @@
 import { PrimaryColumn, Column, Entity } from 'typeorm';
 
 @Entity()
-export class Fornecedores {
+export default class Fornecedores {
   @PrimaryColumn()
   id: number;
   @Column()
