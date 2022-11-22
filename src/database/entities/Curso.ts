@@ -1,8 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity('curso')
-class Curso {
-  @PrimaryGeneratedColumn()
+@Entity('cursos')
+export default class Curso {
+  @PrimaryColumn()
   id: bigint;
 
   @Column()
@@ -20,5 +20,3 @@ class Curso {
   @Column()
   ativo: boolean;
 }
-
-export default Curso;
