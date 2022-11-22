@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('necessidades')
 export default class Necessidade {
   @PrimaryColumn()
-  id: bigint;
+  id: number;
 
   @Column()
   cid: string;

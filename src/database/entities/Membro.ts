@@ -3,10 +3,10 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('membros')
 export default class Membro {
   @PrimaryColumn()
-  id: bigint;
+  id: number;
 
   @Column()
-  fkCargo: bigint;
+  fkCargo: number;
 
   @Column()
   cpfMembro: string;
@@ -18,7 +18,7 @@ export default class Membro {
   emailMembro: string;
 
   @Column()
-  telefoneMembro: bigint;
+  telefoneMembro: number;
 
   @Column()
   formacao: string;

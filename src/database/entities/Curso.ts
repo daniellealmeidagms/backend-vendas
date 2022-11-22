@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('cursos')
 export default class Curso {
   @PrimaryColumn()
-  id: bigint;
+  id: number;
 
   @Column()
   descricaoCurso: string;

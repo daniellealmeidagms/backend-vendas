@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('responsaveis')
 export default class Responsavel {
   @PrimaryColumn()
-  id: bigint;
+  id: number;
 
   @Column()
   nomeResponsavel: string;

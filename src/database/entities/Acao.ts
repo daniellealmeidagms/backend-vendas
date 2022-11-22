@@ -3,10 +3,10 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('acoes')
 export default class Acao {
   @PrimaryColumn()
-  id: bigint;
+  id: number;
 
   @Column()
-  aluno: bigint;
+  aluno: number;
 
   @Column()
   descricaoAcao: string;
