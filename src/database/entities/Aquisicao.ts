@@ -2,7 +2,7 @@
 import { Entity, Column, PrimaryColumn, Timestamp } from 'typeorm';
 
 @Entity()
-export default class Aquisicoes {
+export default class Aquisicao {
   @PrimaryColumn()
   id: number;
 
@@ -23,4 +23,5 @@ export default class Aquisicoes {
 
   @Column()
   ativo: boolean;
+
 }
