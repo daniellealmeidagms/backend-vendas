@@ -7,7 +7,7 @@ export default class Aquisicoes {
   id: number;
 
   @Column()
-  dataHoraAquisicao: Timestamp;
+  dataHoraAquisicao: Date;
 
   @Column()
   formaPagamento: string;

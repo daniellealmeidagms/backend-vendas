@@ -16,7 +16,7 @@ export default class Venda {
   @Column()
   enviada: boolean;
   @Column()
-  dataHoraVenda: Timestamp;
+  dataHoraVenda: Date;
   @Column()
   ativo: boolean;
   @Column()
