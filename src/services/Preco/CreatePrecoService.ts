@@ -15,11 +15,11 @@ export class CreatePrecoService {
     dataInicioVigencia,
     dataFimVigencia,
     descricao,
-  }: PrecoRequest): Promise<Preco> {
+  }: PrecoRequest): Promise<Preco | Error> {
     const repo = AppDataSource.getRepository(Preco);
-    /*if (await repo.findOne({ descricao })) {
-      return new Error("Já existe");
-    }*/
+    if (await repo.find({ descricao })) {
+      return new Error('Já existe');
+    }
     const preco = repo.create({
       valor,
       dataInicioVigencia,
