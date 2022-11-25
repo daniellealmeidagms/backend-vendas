@@ -17,7 +17,9 @@ export class CreatePrecoService {
     descricao,
   }: PrecoRequest): Promise<Preco | Error> {
     const repo = AppDataSource.getRepository(Preco);
-    if (await repo.find({ descricao })) {
+    if (await repo.find({
+      where: { descricao }
+    })) {
       return new Error('Já existe');
     }
     const preco = repo.create({
