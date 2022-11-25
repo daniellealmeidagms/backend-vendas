@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreatePrecoService } from "../";
+import { CreatePrecoService } from "src/services/CreatePrecoService";
 
 export class CreatePrecoController {
   async handle(request: Request, response: Response) {
