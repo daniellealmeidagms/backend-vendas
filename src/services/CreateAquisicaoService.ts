@@ -9,9 +9,9 @@ type AquisicaoRequest = {
   valorTotal: number;
   fkFornecedor: number;
   fkLojista: number;
-}
+};
 export class CreateAquisicaoService {
-  async execute({ dataHoraAquisicao, formaPagamento, valorTotal, fkFornecedor, fkLojista}: AquisicaoRequest): Promise<Aquisicao | Error> {
+  async execute({ dataHoraAquisicao, formaPagamento, valorTotal, fkFornecedor, fkLojista }: AquisicaoRequest): Promise<Aquisicao | Error> {
     const repo = AppDataSource.getRepository(Aquisicao);
 
     const aquisicao = repo.create({
