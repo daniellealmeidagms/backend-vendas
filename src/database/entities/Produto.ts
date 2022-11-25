@@ -1,11 +1,13 @@
 // Tiago e Karol
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity('produtos')
 export default class Produto {
+  // Chave primária
   @PrimaryColumn()
   id: number;
 
+  // Atributos
   @Column()
   descricao: string;
 
@@ -21,6 +23,7 @@ export default class Produto {
   @Column()
   qtdEstoque: number;
 
+  // Variáveis de controle
   @Column()
   ativo: boolean;
 }
