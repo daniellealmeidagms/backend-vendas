@@ -8,7 +8,7 @@ export default class ReadOneProdutoController {
 
     const service = new ReadOneProdutoService();
 
-    const produtoProcurado = await service.execute(idInt);
+    const produtoProcurado = await service.execute({ idInt }); //Precisei colocar as chaves para funcionar, não sei o porquê.
 
     return response.json(produtoProcurado);
   }

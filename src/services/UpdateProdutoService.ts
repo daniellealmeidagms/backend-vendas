@@ -24,7 +24,7 @@ export default class UpdateProdutoService {
   }: ProdutoUpdateRequest) {
     const repo = AppDataSource.getRepository(Produto);
 
-    const produto = await repo.findOne(id);
+    const produto = await repo.findOne({ where: { id: id } });
 
     if (!produto) {
       return new Error('Produto não existe!');

@@ -6,7 +6,7 @@ type ProdutoUpdateRequest = { idInt: number };
 export class ReadOneProdutoService {
   async execute({ idInt }: ProdutoUpdateRequest) {
     const repo = AppDataSource.getRepository(Produto);
-    const produto = await repo.find({ where: { id: idInt } });
+    const produto = await repo.findOne({ where: { id: idInt } });
     if (!Produto) {
       return new Error('Produto não encontrado!');
     }
