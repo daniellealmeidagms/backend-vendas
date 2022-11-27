@@ -11,7 +11,7 @@ type UpdatePrecoRequest = {
 export class UpdatePrecoService {
   async execute({
     id,
-    valor,
+    valor, 
     dataInicioVigencia,
     dataFimVigencia,
     descricao,
