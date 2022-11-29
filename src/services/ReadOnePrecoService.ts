@@ -5,7 +5,7 @@ type ReadOnePrecoRequest = {
   id: number;
 };
 
-export class ReadAllPrecoService {
+export class ReadOnePrecoService {
   async execute({ id }: ReadOnePrecoRequest) {
     const repo = AppDataSource.getRepository(Preco);
     const preco = await repo.findOne({ where: { id: id } });
