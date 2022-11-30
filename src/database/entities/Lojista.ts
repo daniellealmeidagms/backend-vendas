@@ -1,16 +1,22 @@
 // Pedro e Edu
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity('lojistas')
 export default class Lojista {
+  // Chave primária
   @PrimaryColumn()
   id: number;
 
+  // Chaves estrangeiras
+  @Column()
+  fkEndereco: number;
+
+  // Atributos
   @Column()
   cnpj: string;
 
   @Column()
-  razaosocial: string;
+  razaoSocial: string;
 
   @Column()
   segmento: string;
@@ -18,9 +24,7 @@ export default class Lojista {
   @Column()
   telefone: number;
 
+  // Variáveis de controle
   @Column()
   ativo: boolean;
-
-  @Column()
-  fkEndereco: number;
 }
