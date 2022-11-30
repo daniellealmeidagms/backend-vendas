@@ -7,6 +7,9 @@ export class ReadOnePrecoController {
     const idInt = parseInt(id);
     const service = new ReadOnePrecoService();
     const preco = await service.execute({ idInt });
+    if (preco instanceof Error) {
+      response.status(400).json(preco.message);
+    }
     return response.json(preco);
   }
 }
