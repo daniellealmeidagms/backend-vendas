@@ -1,11 +1,17 @@
-import { Request, Response } from "express";
-import { CreatePrecoService } from "src/services/CreatePrecoService";
+import { Request, Response } from 'express';
+import { CreatePrecoService } from '../services/CreatePrecoService';
 
 export class CreatePrecoController {
   async handle(request: Request, response: Response) {
-    const { valor, dataInicioVigencia, dataFimVigencia, descricao } = request.body
+    const { valor, dataInicioVigencia, dataFimVigencia, descricao } =
+      request.body;
     const service = new CreatePrecoService();
-    const result = await service.execute({ valor, dataInicioVigencia, dataFimVigencia, descricao });
+    const result = await service.execute({
+      valor,
+      dataInicioVigencia,
+      dataFimVigencia,
+      descricao,
+    });
     if (result instanceof Error) {
       return response.status(400).json(result.message);
     }

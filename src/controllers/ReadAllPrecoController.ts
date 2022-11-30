@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ReadAllPrecoService } from 'src/services/ReadAllPrecoService';
+import { ReadAllPrecoService } from '../services/ReadAllPrecoService';
 
 export class ReadAllPrecoController {
   async handle(request: Request, response: Response) {

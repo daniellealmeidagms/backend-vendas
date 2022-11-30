@@ -1,5 +1,5 @@
-import { AppDataSource } from 'src/database/datasource';
-import Preco from 'src/database/entities/Preco';
+import { AppDataSource } from '../database/datasource';
+import Preco from '../database/entities/Preco';
 
 type UpdatePrecoRequest = {
   id: number;
@@ -11,7 +11,7 @@ type UpdatePrecoRequest = {
 export class UpdatePrecoService {
   async execute({
     id,
-    valor, 
+    valor,
     dataInicioVigencia,
     dataFimVigencia,
     descricao,

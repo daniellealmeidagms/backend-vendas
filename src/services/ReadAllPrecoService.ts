@@ -1,6 +1,5 @@
-import { AppDataSource } from "src/database/datasource";
-import Preco from "src/database/entities/Preco";
-
+import { AppDataSource } from '../database/datasource';
+import Preco from '../database/entities/Preco';
 
 export class ReadAllPrecoService {
   async execute() {
