@@ -2,15 +2,15 @@ import { AppDataSource } from '../database/datasource';
 import Preco from '../database/entities/Preco';
 
 type DeletePrecoRequest = {
-  id: number;
+  idInt: number;
 };
 
 export class DeletePrecoService {
-  async execute({ id }: DeletePrecoRequest) {
+  async execute({ idInt }: DeletePrecoRequest) {
     const repo = AppDataSource.getRepository(Preco);
-    if (!(await repo.findOne({ where: { id } }))) {
+    if (!(await repo.findOne({ where: { id: idInt } }))) {
       return new Error('Preço não existe');
     }
-    await repo.delete(id);
+    await repo.delete(idInt);
   }
 }
