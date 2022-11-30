@@ -9,6 +9,8 @@ import Preco from './entities/Preco';
 import Produto from './entities/Produto';
 import Venda from './entities/Venda';
 
+//const bruce = new Cachorro();
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
