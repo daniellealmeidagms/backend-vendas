@@ -3,10 +3,11 @@ import { DataSource } from 'typeorm';
 import Aquisicao from './entities/Aquisicao';
 import Cliente from './entities/Cliente';
 import Endereco from './entities/Endereco';
-import { Fornecedor } from './entities/Fornecedor';
+import Fornecedor from './entities/Fornecedor';
 import Lojista from './entities/Lojista';
 import Preco from './entities/Preco';
 import Produto from './entities/Produto';
+import Venda from './entities/Venda';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
