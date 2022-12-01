@@ -1,26 +1,42 @@
 // Diogo e Fernando
-import { Entity, Column, PrimaryColumn, Timestamp } from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity('vendas')
 export default class Venda {
+  // Chave primária
   @PrimaryColumn()
   id: number;
-  @Column()
-  formaPagamento: string;
-  @Column()
-  vendaVarejo: boolean;
-  @Column()
-  desconto: number;
-  @Column()
-  valorFrete: number;
-  @Column()
-  enviada: boolean;
-  @Column()
-  dataHoraVenda: Timestamp;
-  @Column()
-  ativo: boolean;
+
+  // Chaves estrangeiras
   @Column()
   fkCliente: number;
+
   @Column()
   fkLojista: number;
+
+  // Atributos
+  @Column({ type: 'timestamptz' })
+  dataHoraVenda: Date;
+
+  @Column()
+  formaPagamento: string;
+
+  @Column()
+  vendaVarejo: boolean;
+
+  @Column()
+  desconto: number;
+
+  @Column()
+  valorFrete: number;
+
+  @Column()
+  valorTotal: number;
+
+  // Variáveis de controle
+  @Column()
+  enviada: boolean;
+
+  @Column()
+  ativo: boolean;
 }

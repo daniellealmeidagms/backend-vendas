@@ -8,6 +8,8 @@ import Lojista from './entities/Lojista';
 import Preco from './entities/Preco';
 import Produto from './entities/Produto';
 
+//const bruce = new Cachorro();
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
