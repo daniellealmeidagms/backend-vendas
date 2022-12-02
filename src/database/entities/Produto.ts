@@ -31,5 +31,7 @@ export default class Produto {
   constructor() {
     this.id = uuid();
     this.ativo = true;
+    console.log('ID gerado: ', this.id);
+    console.log('Status: ', this.ativo);
   }
 }

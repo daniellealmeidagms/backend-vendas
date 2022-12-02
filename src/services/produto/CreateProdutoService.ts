@@ -11,22 +11,9 @@ type CreateProdutoRequest = {
 
 export default class CreateProdutoService{
   async execute({descricao, tamanho, categoria, fkPreco, qtdEstoque} :CreateProdutoRequest): Promise <Produto | Error> {
+      
     const repo = AppDataSource.getRepository(Produto);
 
-    // SELECT * FROM produtos WHERE 
-    const search = await repo.find({
-      where: {
-          descricao: descricao,
-          tamanho: tamanho,
-          categoria: categoria,
-      },
-    });
-    // essa variável está preenchida
-    if (search) {
-      return new Error("Este produto já existe.");
-    }
-
-    // INSERT INTO produtos (id, descricao ...) VALUES('2jhfsd7', 'calça jeans', ...)
     const produto = repo.create({
       descricao,
       tamanho,
@@ -35,7 +22,7 @@ export default class CreateProdutoService{
       qtdEstoque
     });
 
-    // F5
+    // INSERT INTO produtos (id, descricao ...) VALUES('2jhfsd7', 'calça jeans', ...)// F5
     await repo.save(produto);
 
     return(produto);

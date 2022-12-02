@@ -4,10 +4,10 @@ import { Request, Response } from "express";
 export default class ReadAllProdutosController {
  async handle(req: Request, res: Response) {
   const service = new ReadAllProdutosService();
-  const result = service.execute();
-  if (!result) {
-    res.json("Nenhum produto cadastrado.");
+  const result = await service.execute();
+  if (result instanceof Error) {
+    res.status(400).json(result.message);
   }
-  return(result);
+  res.status(200).json(result);
  }
 }
