@@ -1,11 +1,12 @@
 // Diogo e Fernando
 import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { v4 as uuid } from 'uuid';
 
 @Entity('vendas')
 export default class Venda {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chaves estrangeiras
   @Column()
@@ -39,4 +40,11 @@ export default class Venda {
 
   @Column()
   ativo: boolean;
+
+  constructor(){
+    this.id = uuid();
+    this.ativo = true;
+    this.dataHoraVenda = new Date();
+    this.enviada = false;
+  }
 }

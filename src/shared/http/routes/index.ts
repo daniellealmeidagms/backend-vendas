@@ -20,4 +20,7 @@ routes.post('/produtos', new CreateProdutoController().handle);
 routes.put('/produtos/:id', new UpdateProdutoController().handle);
 routes.patch('/produtos/:id', new DeleteProdutoController().handle);
 
+// --- VENDA ---
+routes.post('/vendas', new CreateProdutoController().handle);
+
 export default routes;
