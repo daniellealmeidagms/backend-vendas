@@ -9,29 +9,33 @@ export default class Produto {
   id: string;
 
   // Atributos
-  @Column()
+  @Column({nullable: true})
   descricao: string;
 
-  @Column()
+  @Column({nullable: true})
   tamanho: string;
 
-  @Column()
+  @Column({nullable: true})
   categoria: string;
 
-  @Column()
+  @Column({nullable: true})
   fkPreco: number;
 
-  @Column()
+  @Column({nullable: true})
   qtdEstoque: number;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
 
+  /*
+  created_at: Date;
+  updated_at: Date;
+  deleted_at: Date;
+  */
+
   constructor() {
     this.id = uuid();
     this.ativo = true;
-    console.log('ID gerado: ', this.id);
-    console.log('Status: ', this.ativo);
   }
 }

@@ -1,4 +1,4 @@
-import ReadAllProdutosService from "@services/produto/ReadAllProdutosService";
+import ReadAllProdutosService from "@services/produto-danielle/ReadAllProdutosService";
 import { Request, Response } from "express";
 
 export default class ReadAllProdutosController {

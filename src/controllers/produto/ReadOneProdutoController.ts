@@ -1,14 +1,20 @@
-import ReadOneProdutoService from "@services/produto/ReadOneProdutoService";
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
+import { ReadOneProdutoService } from '@services/produto/ReadOneProdutoService';
 
 export default class ReadOneProdutoController {
- async handle(req: Request, res: Response) {
-  const { id } = req.params;
-  const service = new ReadOneProdutoService();
-  const result = await service.execute({id});
-  if (result instanceof Error) {
-    res.status(400).json(result.message);
+  async handle(request: Request, response: Response) {
+    
+    // meusite.com.br/produtos/xpto15
+    const { id } = request.params;
+
+    const service = new ReadOneProdutoService();
+
+    const result = await service.execute({ id }); //Precisei colocar as chaves para funcionar, não sei o porquê.
+
+    if(result instanceof Error){
+      return response.status(404).json(result.message);
+    }
+
+    return response.json(result);
   }
-  res.status(200).json(result);
- }
 }
