@@ -14,13 +14,15 @@ export default class CreateVendaController {
       valorTotal,
     } = request.body;
     const service = new CreateVendaService();
-    const result = await service.execute({fkCliente,
+    const result = await service.execute({
+      fkCliente,
       fkLojista,
       formaPagamento,
       vendaVarejo,
       desconto,
       valorFrete,
-      valorTotal});
-    return result;
+      valorTotal
+    });
+    response.status(200).json(result);
   }
 }

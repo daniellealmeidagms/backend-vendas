@@ -1,4 +1,5 @@
 // Johnathan, Mateus e Kalleu
+import { randomInt } from 'crypto';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('enderecos')
@@ -29,4 +30,9 @@ export default class Endereco {
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor(){
+    this.id = randomInt(100000);
+    this.ativo = true;
+  }
 }

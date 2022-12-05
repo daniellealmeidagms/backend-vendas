@@ -1,4 +1,5 @@
 // Jeovana e Welita
+import { randomInt } from 'crypto';
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity('clientes')
@@ -27,4 +28,9 @@ export default class Cliente {
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor(){
+    this.id = randomInt(100000);
+    this.ativo = true;
+  }
 }

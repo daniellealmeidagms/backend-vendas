@@ -1,3 +1,4 @@
+import CreateEnderecoController from '@controllers/endereco/CreateEnderecoController';
 import CreateProdutoController from '@controllers/produto/CreateProdutoController';
 import DeleteProdutoController from '@controllers/produto/DeleteProdutoController';
 import ReadAllProdutosController from '@controllers/produto/ReadAllProdutoController';
@@ -22,5 +23,8 @@ routes.patch('/produtos/:id', new DeleteProdutoController().handle);
 
 // --- VENDA ---
 routes.post('/vendas', new CreateProdutoController().handle);
+
+// --- VENDA ---
+routes.post('/enderecos', new CreateEnderecoController().handle);
 
 export default routes;

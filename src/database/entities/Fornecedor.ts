@@ -1,9 +1,9 @@
-// Pedro e Edu
+// Gabriel e Lucas
 import { randomInt } from 'crypto';
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { PrimaryColumn, Column, Entity } from 'typeorm';
 
-@Entity('lojistas')
-export default class Lojista {
+@Entity('fornecedores')
+export default class Fornecedor {
   // Chave primária
   @PrimaryColumn()
   id: number;
@@ -18,9 +18,6 @@ export default class Lojista {
 
   @Column()
   razaoSocial: string;
-
-  @Column()
-  segmento: string;
 
   @Column()
   telefone: number;
