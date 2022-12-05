@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateClienteService } from '@services/CreateClienteService';
+import { CreateClienteService } from '@services/cliente/CreateClienteService';
 
 export class CreateClienteController {
   async handle(request: Request, response: Response) {

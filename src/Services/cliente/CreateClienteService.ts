@@ -1,5 +1,5 @@
-import { AppDataSource } from '../database/datasource';
-import Cliente from '../database/entities/Cliente';
+import { AppDataSource } from '@database/datasource';
+import Cliente from '@database/entities/Cliente';
 
 type ClienteRequest = {
   cpf_cnpj: string;
@@ -20,8 +20,9 @@ export class CreateClienteService {
     const repo = AppDataSource.getRepository(Cliente);
 
     if (await repo.findOne({ where: { cpf_cnpj: cpf_cnpj } })) {
-      return new Error('Cliente invalido');
+      return new Error('Cliente já cadastrado!');
     }
+
     const cliente = repo.create({
       cpf_cnpj,
       nome_razaosocial,
@@ -29,6 +30,7 @@ export class CreateClienteService {
       telefone,
       fkEndereco,
     });
+
     await repo.save(cliente);
 
     return cliente;
