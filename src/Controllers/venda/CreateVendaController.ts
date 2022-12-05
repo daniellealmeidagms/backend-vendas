@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import Venda from '@database/entities/Venda';
 import CreateVendaService from '@services/venda/CreateVendaService';
 
 export default class CreateVendaController {
