@@ -1,5 +1,5 @@
-import { AppDataSource } from "src/database/datasource";
-import Endereco from "src/database/entities/Endereco";
+import { AppDataSource } from "@database/entities/";
+import Endereco from "@database/entities/Endereco";
 
 type EnderecoRequest = {
   id: number;
