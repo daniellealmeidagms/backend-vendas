@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Endereco from '@database/entities/Endereco';
+import Endereco from '@database/models/Endereco';
 import { CreateEnderecoService } from '@services/endereco/CreateEnderecoService';
 
 export default class CreateVendaController {

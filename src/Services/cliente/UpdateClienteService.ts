@@ -1,5 +1,5 @@
   import { AppDataSource } from "src/database/datasource";
-  import Cliente from "src/database/entities/Cliente";
+  import Cliente from "@database/models/Cliente";
 
   AppDataSource.getRepository
 
