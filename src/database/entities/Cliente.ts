@@ -1,11 +1,17 @@
 // Jeovana e Welita
 import { Entity, PrimaryColumn, Column } from 'typeorm';
 
-@Entity()
+@Entity('clientes')
 export default class Cliente {
+  // Chave primária
   @PrimaryColumn()
   id: number;
 
+  // Chave estrangeira
+  @Column()
+  fkEndereco: number;
+
+  // Atributos
   @Column()
   cpf_cnpj: string;
 
@@ -18,9 +24,7 @@ export default class Cliente {
   @Column()
   telefone: number;
 
-  @Column()
-  fkEndereco: number;
-
+  // Variáveis de controle
   @Column()
   ativo: boolean;
 }
