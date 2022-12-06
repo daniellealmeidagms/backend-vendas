@@ -4,6 +4,7 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 @Entity('aquisicoes')
 export default class Aquisicao {
   // Chave primária
+
   @PrimaryColumn()
   id: number;
 
@@ -20,4 +21,5 @@ export default class Aquisicao {
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
 }
