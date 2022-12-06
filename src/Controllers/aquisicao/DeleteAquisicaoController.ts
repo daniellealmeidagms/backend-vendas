@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import { DeleteAquisicaoService } from "@services/DeleteAquisicaoService";
-
+import DeleteAquisicaoService from "@services/aquisicao/DeleteAquisicaoService";
 
 export class DeleteAquisicaoController {
   async handle(request: Request, response: Response) {
@@ -8,9 +7,11 @@ export class DeleteAquisicaoController {
 
     const idInt = parseInt(id);
 
+    console.log('Passei aqui - Controller');
+
     const service = new DeleteAquisicaoService();
 
-    const result = await service.execute(idInt);
+    const result = await service.execute({idInt});
 
     if (result instanceof Error) {
       return response.status(400).json(result.message);

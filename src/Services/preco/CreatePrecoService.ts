@@ -1,5 +1,5 @@
-import { AppDataSource } from '../database/datasource';
-import Preco from '../database/entities/Preco';
+import { AppDataSource } from '@database/datasource';
+import Preco from '@database/entities/Preco';
 
 type PrecoRequest = {
   valor: number;
@@ -17,11 +17,11 @@ export class CreatePrecoService {
   }: PrecoRequest): Promise<Preco | Error> {
     const repo = AppDataSource.getRepository(Preco);
     if (
-      await repo.find({
-        where: { descricao },
+      await repo.findOne({
+        where: { valor, descricao },
       })
     ) {
-      return new Error('Já existe');
+      return new Error('Preço já cadastrado.');
     }
     const preco = repo.create({
       valor,

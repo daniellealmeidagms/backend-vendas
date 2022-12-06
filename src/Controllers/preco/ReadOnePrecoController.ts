@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ReadOnePrecoService } from '../services/ReadOnePrecoService';
+import { ReadOnePrecoService } from '@services/preco/ReadOnePrecoService';
 
 export class ReadOnePrecoController {
   async handle(request: Request, response: Response) {
@@ -8,7 +8,7 @@ export class ReadOnePrecoController {
     const service = new ReadOnePrecoService();
     const preco = await service.execute({ idInt });
     if (preco instanceof Error) {
-      response.status(400).json(preco.message);
+      response.status(404).json(preco.message);
     }
     return response.json(preco);
   }

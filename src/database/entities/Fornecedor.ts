@@ -2,14 +2,9 @@
 import { randomInt } from 'crypto';
 import { PrimaryColumn, Column, Entity } from 'typeorm';
 
-<<<<<<< HEAD
-@Entity()
-export class Fornecedor {
-=======
 @Entity('fornecedores')
 export default class Fornecedor {
   // Chave primária
->>>>>>> 929dc3f165ebda758ce7d314bc70761abf43034c
   @PrimaryColumn()
   id: number;
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { CreateAquisicaoService } from "@services/CreateAquisicaoService"
+import CreateAquisicaoService from "@services/aquisicao/CreateAquisicaoService"
 
 export class CreateAquisicaoController {
   async handle(request: Request, response: Response) {

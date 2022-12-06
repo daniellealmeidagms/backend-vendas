@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { DeletePrecoService } from '../services/DeletePrecoService';
+import { DeletePrecoService } from '@services/preco/DeletePrecoService';
 
 export class DeletePrecoController {
   async handle(request: Request, response: Response) {

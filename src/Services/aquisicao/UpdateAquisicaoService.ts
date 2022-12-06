@@ -4,7 +4,7 @@ import Aquisicao from "src/database/entities/Aquisicao";
 AppDataSource.getRepository
 
 type AquisicaoUpdateRequest = {
-  id: string;
+  idInt: number;
   dataHoraAquisicao: number;
   formaPagamento: string;
   valorTotal: number;
@@ -13,10 +13,10 @@ type AquisicaoUpdateRequest = {
 }
 
 export class UpdateAquisicaoService {
-  async execute({ id, dataHoraAquisicao, formaPagamento, valorTotal, fkFornecedor, fkLojista }: AquisicaoUpdateRequest) {
+  async execute({ idInt, dataHoraAquisicao, formaPagamento, valorTotal, fkFornecedor, fkLojista }: AquisicaoUpdateRequest) {
     const repo = AppDataSource.getRepository(Aquisicao);
 
-    const aquisicao = await repo.findOne({});
+    const aquisicao = await repo.findOne({where: {id: idInt}});
 
     if (!aquisicao) {
       return new Error("Aquisicao does not exists");

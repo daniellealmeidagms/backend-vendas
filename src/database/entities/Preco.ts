@@ -28,5 +28,6 @@ export default class Preco {
   constructor() {
     this.id = randomInt(10000);
     this.ativo = true;
+    this.dataInicioVigencia = new Date();
   }
 }
