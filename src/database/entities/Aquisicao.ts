@@ -1,13 +1,16 @@
 // Beatriz e Ana Cláudia
-import { Entity, Column, PrimaryColumn, Timestamp } from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity('aquisicoes')
 export default class Aquisicao {
+  // Chave primária
+
   @PrimaryColumn()
   id: number;
 
+  // Chaves estrangeiras
   @Column()
-  dataHoraAquisicao: Timestamp;
+  dataHoraAquisicao: Date;
 
   @Column()
   formaPagamento: string;
@@ -15,12 +18,7 @@ export default class Aquisicao {
   @Column()
   valorTotal: number;
 
-  @Column()
-  fkFornecedor: number;
-
-  @Column()
-  fkLojista: number;
-
+  // Variáveis de controle
   @Column()
   ativo: boolean;
 
