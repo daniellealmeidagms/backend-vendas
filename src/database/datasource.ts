@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm';
 import Aquisicoes from './models/Aquisicao';
 import Cliente from './models/Cliente';
 import Endereco from './models/Endereco';
-import { Fornecedor } from './models/Fornecedor';
+import Fornecedor from './models/Fornecedor';
 import Lojista from './models/Lojista';
 import Preco from './models/Preco';
 import Produto from './models/Produto';
@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   port: 5432,
   username: 'postgres',
   password: 'postgres',
-  database: 'api-vendas',
+  database: 'api-vendas-teste',
   synchronize: true,
   logging: true,
   entities: [
