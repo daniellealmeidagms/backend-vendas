@@ -1,5 +1,5 @@
-import { AppDataSource } from 'src/database/datasource';
-import Lojista from 'src/database/entities/Lojista';
+import { AppDataSource } from '@database/datasource';
+import Lojista from '@database/models/Lojista';
 
 type LojistaUpdateRequest = {
   idInt: number;
@@ -8,7 +8,7 @@ type LojistaUpdateRequest = {
 export default class ReadOneLojistaService {
   async execute({ idInt }: LojistaUpdateRequest) {
     const repo = AppDataSource.getRepository(Lojista);
-    const lojista = await repo.find({ where: { id: idInt } });
+    const lojista = await repo.findOne({ where: { id: idInt } });
     if (!lojista) {
       return new Error('Lojista não encontrado');
     }
