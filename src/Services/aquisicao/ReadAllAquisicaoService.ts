@@ -1,13 +1,10 @@
 import { AppDataSource } from "src/database/datasource";
 import Aquisicao from "@database/models/Aquisicao";
 
-export default class GetAllAquisicaoService {
+export default class ReadAllAquisicaoService {
   async execute() {
-
     const repo = AppDataSource.getRepository(Aquisicao);
-
-    const aquisicao = await repo.find();
-
-    return aquisicao;
+    const aquisicoes = await repo.find({where: {ativo: true}});
+    return aquisicoes;
   }
 }

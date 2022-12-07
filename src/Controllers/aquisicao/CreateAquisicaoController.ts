@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import CreateAquisicaoService from "@services/aquisicao/CreateAquisicaoService"
 
-export class CreateAquisicaoController {
+export default class CreateAquisicaoController {
   async handle(request: Request, response: Response) {
     
     const { formaPagamento, valorTotal, fkFornecedor, fkLojista } = request.body
