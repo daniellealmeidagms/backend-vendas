@@ -8,22 +8,27 @@ export default class Produto {
   id: number;
 
   // Atributos
-  @Column()
+  @Column({ nullable: true })
   descricao: string;
 
-  @Column()
+  @Column({ nullable: true })
   tamanho: string;
 
-  @Column()
+  @Column({ nullable: true })
   categoria: string;
 
-  @Column()
+  @Column({ nullable: true })
   preco: number;
 
-  @Column()
+  @Column({ nullable: true })
   qtdEstoque: number;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.qtdEstoque = 0;
+    this.ativo = true;
+  }
 }

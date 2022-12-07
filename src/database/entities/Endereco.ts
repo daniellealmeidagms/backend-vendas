@@ -8,25 +8,29 @@ export default class Endereco {
   id: number;
 
   // Atributos
-  @Column()
+  @Column({ nullable: true })
   cep: string;
 
-  @Column()
+  @Column({ nullable: true })
   logradouro: string;
 
-  @Column()
+  @Column({ nullable: true })
   complemento: string;
 
-  @Column()
+  @Column({ nullable: true })
   bairro: string;
 
-  @Column()
+  @Column({ nullable: true })
   localidade: string;
 
-  @Column()
+  @Column({ nullable: true })
   uf: string;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.ativo = true;
+  }
 }

@@ -15,22 +15,22 @@ export default class Venda {
   fkLojista: number;
 
   // Atributos
-  @Column({ type: 'timestamptz' })
-  dataHoraVenda: Date;
+  @Column({ type: 'timestamptz', nullable: true })
+  dataHoraVenda: string;
 
-  @Column()
+  @Column({ nullable: true })
   formaPagamento: string;
 
-  @Column()
+  @Column({ nullable: true })
   vendaVarejo: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   desconto: number;
 
-  @Column()
+  @Column({ nullable: true })
   valorFrete: number;
 
-  @Column()
+  @Column({ nullable: true })
   valorTotal: number;
 
   // Variáveis de controle
@@ -39,4 +39,10 @@ export default class Venda {
 
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.dataHoraVenda = new Date().toISOString();
+    this.enviada = false;
+    this.ativo = true;
+  }
 }

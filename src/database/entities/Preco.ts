@@ -8,19 +8,23 @@ export default class Preco {
   id: number;
 
   // Atributos
-  @Column()
+  @Column({ nullable: true })
   valor: number;
 
-  @Column()
+  @Column({ nullable: true })
   dataInicioVigencia: Date;
 
-  @Column()
+  @Column({ nullable: true })
   dataFimVigencia: Date;
 
-  @Column()
+  @Column({ nullable: true })
   descricao: string;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.ativo = true;
+  }
 }

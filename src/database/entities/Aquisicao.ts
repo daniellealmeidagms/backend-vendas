@@ -18,13 +18,17 @@ export default class Aquisicao {
   @Column({ type: 'timestamptz' })
   dataHoraAquisicao: Date;
 
-  @Column()
+  @Column({ nullable: true })
   formaPagamento: string;
 
-  @Column()
+  @Column({ nullable: true })
   valorTotal: number;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.ativo = true;
+  }
 }

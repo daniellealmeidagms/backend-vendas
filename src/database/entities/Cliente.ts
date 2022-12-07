@@ -12,19 +12,20 @@ export default class Cliente {
   fkEndereco: number;
 
   // Atributos
-  @Column()
+  @Column({ nullable: true })
   cpf_cnpj: string;
 
-  @Column()
+  @Column({ nullable: true })
   nome_razaosocial: string;
 
-  @Column()
-  segmento: string;
-
-  @Column()
+  @Column({ nullable: true })
   telefone: number;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.ativo = true;
+  }
 }

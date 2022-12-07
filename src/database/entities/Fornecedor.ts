@@ -12,16 +12,20 @@ export default class Fornecedor {
   fkEndereco: number;
 
   // Atributos
-  @Column()
+  @Column({ nullable: true })
   cnpj: string;
 
-  @Column()
+  @Column({ nullable: true })
   razaoSocial: string;
 
-  @Column()
+  @Column({ nullable: true })
   telefone: number;
 
   // Variáveis de controle
   @Column()
   ativo: boolean;
+
+  constructor() {
+    this.ativo = true;
+  }
 }
