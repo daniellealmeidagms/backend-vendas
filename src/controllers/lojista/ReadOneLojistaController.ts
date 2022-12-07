@@ -1,7 +1,7 @@
 import ReadOneLojistaService from '@services/lojista/ReadOneLojistaService';
 import {Request, Response } from 'express'
 
-export default class ReadOneLojistaController {
+export default class ReadOneLojistaController{
   async handle(request: Request, response: Response) {
     const { id } = request.params;
     const service = new ReadOneLojistaService();
@@ -11,4 +11,5 @@ export default class ReadOneLojistaController {
     }
     return response.json(result);
   }
+
 }
