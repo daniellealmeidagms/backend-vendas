@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import { ReadAllPrecoService } from '@services/preco/ReadAllPrecoService';
+import { Response } from 'express';
+import ReadAllPrecoService from '@services/preco/ReadAllPrecoService';
 
-export class ReadAllPrecoController {
-  async handle(request: Request, response: Response) {
+export default class ReadAllPrecoController {
+  async handle(response: Response) {
     const service = new ReadAllPrecoService();
     const result = await service.execute();
     if (result.length < 1){

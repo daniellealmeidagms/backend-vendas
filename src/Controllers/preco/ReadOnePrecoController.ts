@@ -1,12 +1,11 @@
 import { Request, Response } from 'express';
-import { ReadOnePrecoService } from '@services/preco/ReadOnePrecoService';
+import ReadOnePrecoService from '@services/preco/ReadOnePrecoService';
 
-export class ReadOnePrecoController {
+export default class ReadOnePrecoController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const idInt = parseInt(id);
     const service = new ReadOnePrecoService();
-    const preco = await service.execute({ idInt });
+    const preco = await service.execute({ id });
     if (preco instanceof Error) {
       response.status(404).json(preco.message);
     }

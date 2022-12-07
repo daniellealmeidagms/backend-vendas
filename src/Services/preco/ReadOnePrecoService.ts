@@ -1,16 +1,14 @@
 import { AppDataSource } from '@database/datasource';
 import Preco from '@database/models/Preco';
 
-type ReadOnePrecoRequest = {
-  idInt: number;
-};
+type PrecoRequest = { id: string };
 
-export class ReadOnePrecoService {
-  async execute({ idInt }: ReadOnePrecoRequest) {
+export default class ReadOnePrecoService {
+  async execute({ id }: PrecoRequest) {
     const repo = AppDataSource.getRepository(Preco);
-    const preco = await repo.findOne({ where: { id: idInt } });
+    const preco = await repo.findOne({ where: { id } });
     if (!preco) {
-      return new Error('Preço não encontrado.');
+      return new Error('Preço não encontrado!');
     }
     return preco;
   }

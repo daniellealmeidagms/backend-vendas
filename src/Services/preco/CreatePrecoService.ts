@@ -8,7 +8,7 @@ type CreatePrecoRequest = {
   descricao: string;
 };
 
-export class CreatePrecoService {
+export default class CreatePrecoService {
   async execute({
     valor,
     dataInicioVigencia,
