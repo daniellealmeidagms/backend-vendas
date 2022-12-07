@@ -1,16 +1,15 @@
-// Jeovana e Welita
-import { randomInt } from 'crypto';
 import { Entity, PrimaryColumn, Column } from 'typeorm';
+import { v4 as uuid } from 'uuid';
 
 @Entity('clientes')
 export default class Cliente {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chave estrangeira
   @Column()
-  fkEndereco: number;
+  fkEndereco: string;
 
   // Atributos
   @Column()
@@ -30,7 +29,7 @@ export default class Cliente {
   ativo: boolean;
 
   constructor(){
-    this.id = randomInt(100000);
+    this.id = uuid();
     this.ativo = true;
   }
 }

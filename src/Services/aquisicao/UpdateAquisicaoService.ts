@@ -1,5 +1,5 @@
 import { AppDataSource } from "src/database/datasource";
-import Aquisicao from "src/database/entities/Aquisicao";
+import Aquisicao from "@database/models/Aquisicao";
 
 AppDataSource.getRepository
 

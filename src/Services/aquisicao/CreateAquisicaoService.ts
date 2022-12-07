@@ -1,5 +1,5 @@
 import { AppDataSource } from "@database/datasource";
-import Aquisicao from "@database/entities/Aquisicao";
+import Aquisicao from "@database/models/Aquisicao";
 
 type AquisicaoRequest = {
   dataHoraAquisicao: Date;

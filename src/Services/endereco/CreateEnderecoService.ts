@@ -1,5 +1,5 @@
 import { AppDataSource } from "@database/datasource";
-import Endereco from "@database/entities/Endereco";
+import Endereco from "@database/models/Endereco";
 
 type EnderecoRequest = {
   cep: string;

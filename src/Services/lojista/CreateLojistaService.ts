@@ -1,5 +1,5 @@
 import { AppDataSource } from '@database/datasource';
-import Lojista from '@database/entities/Lojista';
+import Lojista from '@database/models/Lojista';
 
 type CreateLojistaRequest = {
   cnpj: string;

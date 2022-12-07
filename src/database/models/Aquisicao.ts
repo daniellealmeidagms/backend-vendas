@@ -1,22 +1,21 @@
-// Beatriz e Ana Cláudia
-import { randomInt } from 'crypto';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { v4 as uuid } from 'uuid';
 
 @Entity('aquisicoes')
 export default class Aquisicao {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chaves estrangeiras
   @Column()
-  fkLojista: number
+  fkLojista: string
 
   @Column()
-  fkFornecedor: number
+  fkFornecedor: string
 
   // Atributos
-  @Column()
+  @Column({type: 'timestamptz'})
   dataHoraAquisicao: Date;
 
   @Column()
@@ -30,7 +29,7 @@ export default class Aquisicao {
   ativo: boolean;
 
   constructor(){
-    this.id = randomInt(10000)
+    this.id = uuid();
     this.ativo = true;
   }
 

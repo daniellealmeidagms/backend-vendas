@@ -1,5 +1,5 @@
 import { AppDataSource } from 'src/database/datasource';
-import Produto from 'src/database/entities/Produto';
+import Produto from '@database/models/Produto';
 
 type ProdutoUpdateRequest = { id: string };
 

@@ -1,5 +1,5 @@
 import { AppDataSource } from '@database/datasource';
-import Venda from '@database/entities/Venda';
+import Venda from '@database/models/Venda';
 
 type VendaCreateRequest = {
   fkCliente: number,

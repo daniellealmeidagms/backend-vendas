@@ -1,16 +1,15 @@
-// Gabriel e Lucas
-import { randomInt } from 'crypto';
+import { v4 as uuid } from 'uuid';
 import { PrimaryColumn, Column, Entity } from 'typeorm';
 
 @Entity('fornecedores')
 export default class Fornecedor {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chaves estrangeiras
   @Column()
-  fkEndereco: number;
+  fkEndereco: string;
 
   // Atributos
   @Column()
@@ -27,7 +26,7 @@ export default class Fornecedor {
   ativo: boolean;
 
   constructor(){
-    this.id = randomInt(100000);
+    this.id = uuid();
     this.ativo = true;
   }
 }

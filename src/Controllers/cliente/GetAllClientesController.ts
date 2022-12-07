@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { GetAllClienteService } from '@services/GetAllClienteService';
-import Cliente from 'src/database/entities/Cliente';
+import Cliente from '@database/models/Cliente';
 
 export class GetAllClienteController {
   async handle(request: Request, response: Response) {

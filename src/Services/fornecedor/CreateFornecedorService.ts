@@ -1,6 +1,6 @@
 import { create } from "domain";
 import { AppDataSource } from "@database/datasource";
-import Fornecedor from '@database/entities/Fornecedor';
+import Fornecedor from '@database/models/Fornecedor';
 
 type FornecedorRequest = {
   cnpj: string

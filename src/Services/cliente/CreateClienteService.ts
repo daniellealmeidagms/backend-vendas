@@ -1,5 +1,5 @@
 import { AppDataSource } from '@database/datasource';
-import Cliente from '@database/entities/Cliente';
+import Cliente from '@database/models/Cliente';
 
 type ClienteRequest = {
   cpf_cnpj: string;

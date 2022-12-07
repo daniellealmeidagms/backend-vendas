@@ -1,12 +1,11 @@
-// Johnathan, Mateus e Kalleu
-import { randomInt } from 'crypto';
+import { v4 as uuid } from 'uuid';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('enderecos')
 export default class Endereco {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Atributos
   @Column()
@@ -32,7 +31,7 @@ export default class Endereco {
   ativo: boolean;
 
   constructor(){
-    this.id = randomInt(100000);
+    this.id = uuid()
     this.ativo = true;
   }
 }

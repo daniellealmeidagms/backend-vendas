@@ -1,5 +1,5 @@
 import { AppDataSource } from '@database/datasource';
-import Produto from '@database/entities/Produto';
+import Produto from '@database/models/Produto';
 
 type DeleteProdutoRequest = {
   id: string;
