@@ -10,7 +10,7 @@ type CreateEnderecoRequest = {
   uf: string;
 }
 
-export class CreateEnderecoService {
+export default class CreateEnderecoService {
 
   async execute({ 
     cep, 

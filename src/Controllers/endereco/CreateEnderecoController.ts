@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import Endereco from '@database/models/Endereco';
-import { CreateEnderecoService } from '@services/endereco/CreateEnderecoService';
+import CreateEnderecoService from '@services/endereco/CreateEnderecoService';
 
-export default class CreateVendaController {
+export default class CreateEnderecoController {
   async handle(request: Request, response: Response) {
     
     const {
