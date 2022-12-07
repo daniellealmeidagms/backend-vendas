@@ -4,16 +4,7 @@ import UpdateProdutoService from '@services/produto/UpdateProdutoService';
 export default class UpdateProdutoController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const {
-      descricao,
-      tamanho,
-      categoria,
-      fkPreco,
-      qtdEstoque,
-    } = request.body;
-
-    //const preco = parse(precoString);
-    //const qtdEstoque = parseInt(qtdEstoqueString);
+    const { descricao, tamanho, categoria, fkPreco, qtdEstoque } = request.body;
 
     const service = new UpdateProdutoService();
 

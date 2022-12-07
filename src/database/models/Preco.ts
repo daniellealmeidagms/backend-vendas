@@ -1,11 +1,12 @@
 // Felipe e Ivan
+import { v4 as uuid } from 'uuid';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('precos')
 export default class Preco {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Atributos
   @Column({ nullable: true })
@@ -25,6 +26,7 @@ export default class Preco {
   ativo: boolean;
 
   constructor() {
+    this.id = uuid();
     this.ativo = true;
   }
 }

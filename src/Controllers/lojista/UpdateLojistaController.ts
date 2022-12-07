@@ -1,18 +1,19 @@
+import UpdateLojistaService from '@services/lojista/UpdateLojistaService';
 import { Request, Response } from 'express';
 
-export default class DeleteLojistaController {
+export default class UpdateLojistaController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const { cnpj, razaosocial, segmento, telefone, fkendereco } = request.body;
+    const { razaoSocial, segmento, telefone, fkEndereco } = request.body;
 
     const service = new UpdateLojistaService();
 
     const result = await service.execute({
-      cnpj,
-      razaosocial,
+      id,
+      razaoSocial,
       segmento,
       telefone,
-      fkendereco,
+      fkEndereco,
     });
 
     if (result instanceof Error) {

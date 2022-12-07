@@ -1,15 +1,16 @@
 // Gabriel e Lucas
+import { v4 as uuid } from 'uuid';
 import { PrimaryColumn, Column, Entity } from 'typeorm';
 
 @Entity('fornecedores')
 export default class Fornecedor {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chaves estrangeiras
   @Column()
-  fkEndereco: number;
+  fkEndereco: string;
 
   // Atributos
   @Column({ nullable: true })
@@ -26,6 +27,7 @@ export default class Fornecedor {
   ativo: boolean;
 
   constructor() {
+    this.id = uuid();
     this.ativo = true;
   }
 }

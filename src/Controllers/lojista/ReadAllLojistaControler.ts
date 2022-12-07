@@ -1,11 +1,10 @@
-import { Request } from 'express';
+import ReadAllLojistaService from '@services/lojista/ReadAllLojistaService';
+import { Request, Response } from 'express';
 
-export default class GetAllLojistaController {
+export default class ReadAllLojistaController {
   async handle(request: Request, response: Response) {
-    const service = new GetAllLojistaService();
-
+    const service = new ReadAllLojistaService();
     const categories = await service.execute();
-    
     return response.json(categories);
   }
 }

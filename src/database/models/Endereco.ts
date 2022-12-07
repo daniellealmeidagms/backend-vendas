@@ -1,11 +1,12 @@
 // Johnathan, Mateus e Kalleu
+import { v4 as uuid } from 'uuid';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('enderecos')
 export default class Endereco {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Atributos
   @Column({ nullable: true })
@@ -31,6 +32,7 @@ export default class Endereco {
   ativo: boolean;
 
   constructor() {
+    this.id = uuid();
     this.ativo = true;
   }
 }

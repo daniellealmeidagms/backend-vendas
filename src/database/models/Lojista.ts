@@ -1,15 +1,16 @@
 // Pedro e Edu
+import { v4 as uuid } from 'uuid';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('lojistas')
 export default class Lojista {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chaves estrangeiras
   @Column()
-  fkEndereco: number;
+  fkEndereco: string;
 
   // Atributos
   @Column({ nullable: true })
@@ -29,6 +30,7 @@ export default class Lojista {
   ativo: boolean;
 
   constructor() {
+    this.id = uuid();
     this.ativo = true;
   }
 }

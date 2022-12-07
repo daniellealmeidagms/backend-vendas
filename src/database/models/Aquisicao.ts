@@ -1,18 +1,19 @@
 // Beatriz e Ana Cláudia
+import { v4 as uuid } from 'uuid';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity('aquisicoes')
 export default class Aquisicao {
   // Chave primária
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   // Chaves estrangeiras
   @Column()
-  fkFornecedor: number;
+  fkFornecedor: string;
 
   @Column()
-  fkLojista: number;
+  fkLojista: string;
 
   // Atributos
   @Column({ type: 'timestamptz' })
@@ -29,6 +30,7 @@ export default class Aquisicao {
   ativo: boolean;
 
   constructor() {
+    this.id = uuid();
     this.ativo = true;
   }
 }

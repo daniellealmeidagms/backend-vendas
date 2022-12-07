@@ -6,7 +6,7 @@ type ProdutoUpdateRequest = {
   descricao: string;
   tamanho: string;
   categoria: string;
-  fkPreco: number;
+  fkPreco: string;
   qtdEstoque: number;
 };
 
@@ -19,8 +19,7 @@ export default class UpdateProdutoService {
     categoria,
     fkPreco,
     qtdEstoque,
-  }: ProdutoUpdateRequest): Promise <Produto | Error>{
-    
+  }: ProdutoUpdateRequest): Promise<Produto | Error> {
     const repo = AppDataSource.getRepository(Produto);
 
     // SELECT * FROM produtos WHERE id = $id LIMIT 1
