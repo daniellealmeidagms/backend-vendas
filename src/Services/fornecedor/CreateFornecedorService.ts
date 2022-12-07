@@ -8,7 +8,7 @@ type CreateFornecedorRequest = {
   fkEndereco: string;
 }
 
-export class CreateFornecedorService {
+export default class CreateFornecedorService {
   async execute({ 
     cnpj, 
     razaoSocial, 

@@ -1,7 +1,7 @@
-import { CreateFornecedorService } from "@services/fornecedor/CreateFornecedorService";
+import CreateFornecedorService from "@services/fornecedor/CreateFornecedorService";
 import { Request, Response } from "express";
 
-export class CreateFornecedorController{
+export default class CreateFornecedorController{
   async handle(request: Request, response: Response) {
     
     const { cnpj, razaoSocial, telefone, fkEndereco} = request.body
