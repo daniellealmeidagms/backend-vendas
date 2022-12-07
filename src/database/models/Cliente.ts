@@ -20,6 +20,9 @@ export default class Cliente {
   nome_razaosocial: string;
 
   @Column({ nullable: true })
+  tipoPessoa: string;
+
+  @Column({ nullable: true })
   telefone: number;
 
   // Variáveis de controle
