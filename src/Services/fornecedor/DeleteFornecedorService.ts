@@ -1,26 +1,19 @@
-import { type } from 'os';
-import { report } from 'process';
-import { AppDataSource } from 'src/database/datasource';
-import { Fornecedor } from '../entities/Fornecedor';
+import { AppDataSource } from '@database/datasource';
+import Fornecedor from '@database/models/Fornecedor';
 
-type FornecedorDeleteRequest = {
-  id: number;
+type DeleteFornecedorRequest = {
+  id: string;
 }
 
-export class DeleteFornecedoresService {
-  async execute({ id }: FornecedorDeleteRequest) {
+export class DeleteFornecedorService {
+  async execute({ id }: DeleteFornecedorRequest) {
     const repo = AppDataSource.getRepository(Fornecedor);
-
-    const Fornecedor = await repo.findOne({ where;  { id }});
-  
-  if(!Fornecedor) {
-    return new Error('Fornecedor já cadastrado.');
-  }
-  
-  Fornecedor.ativo = false
-
-
-  await report.save(Fornecedor)
-  return Fornecedor
+    const fornecedor = await repo.findOne({ where : { id }});
+    if(!fornecedor) {
+      return new Error('Fornecedor não encontrado!');
+    }
+    fornecedor.ativo = false
+    await repo.save(fornecedor)
+    return fornecedor
   }
 }

@@ -6,7 +6,7 @@ type CreateLojistaRequest = {
   razaoSocial: string;
   segmento: string;
   telefone: number;
-  fkEndereco: number;
+  fkEndereco: string;
 };
 
 export default class CreateLojistaService {
@@ -16,8 +16,13 @@ export default class CreateLojistaService {
     segmento,
     telefone,
     fkEndereco,
-  }: CreateLojistaRequest): Promise<Lojista> {
+  }: CreateLojistaRequest): Promise<Lojista | Error> {
+    
     const repo = AppDataSource.getRepository(Lojista);
+
+    if (await repo.findOne({ where : {cnpj} })) {
+      return new Error("Lojista já cadastrado!");
+    }
 
     const lojista = repo.create({
       cnpj,
@@ -26,6 +31,7 @@ export default class CreateLojistaService {
       telefone,
       fkEndereco
     });
+    
     await repo.save(lojista);
 
     return lojista;

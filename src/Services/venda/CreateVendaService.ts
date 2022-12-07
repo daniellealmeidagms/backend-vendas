@@ -1,9 +1,9 @@
 import { AppDataSource } from '@database/datasource';
 import Venda from '@database/models/Venda';
 
-type VendaCreateRequest = {
-  fkCliente: number,
-  fkLojista: number,
+type CreateVendaRequest = {
+  fkCliente: string,
+  fkLojista: string,
   formaPagamento: string;
   vendaVarejo: boolean;
   desconto: number;
@@ -20,8 +20,15 @@ export default class CreateVendaService {
     desconto,
     valorFrete,
     valorTotal,
-  }: VendaCreateRequest): Promise<Venda> {
+  }: CreateVendaRequest): Promise<Venda | Error> {
+    
     const repo = AppDataSource.getRepository(Venda);
+
+    const now = new Date().toISOString();
+
+    if (await repo.findOne({ where : { fkCliente, fkLojista, valorTotal, dataHoraVenda:now } })) {
+      return new Error ( "Venda já cadastrada!");
+    }
 
     const venda = repo.create({
       fkCliente,

@@ -1,34 +1,35 @@
 import { AppDataSource } from '@database/datasource';
 import Cliente from '@database/models/Cliente';
 
-type ClienteRequest = {
+type CreateClienteRequest = {
   cpf_cnpj: string;
   nome_razaosocial: string;
-  segmento: string;
+  tipoPessoa: string;
   telefone: number;
-  fkEndereco: number;
+  fkEndereco: string;
 };
 
 export class CreateClienteService {
   async execute({
     cpf_cnpj,
     nome_razaosocial,
-    segmento,
+    tipoPessoa,
     telefone,
     fkEndereco,
-  }: ClienteRequest): Promise<Cliente | Error> {
+  }: CreateClienteRequest): Promise<Cliente | Error> {
+    
     const repo = AppDataSource.getRepository(Cliente);
 
-    if (await repo.findOne({ where: { cpf_cnpj: cpf_cnpj } })) {
+    if (await repo.findOne({ where: { cpf_cnpj } })) {
       return new Error('Cliente já cadastrado!');
     }
 
     const cliente = repo.create({
       cpf_cnpj,
       nome_razaosocial,
-      segmento,
+      tipoPessoa,
       telefone,
-      fkEndereco,
+      fkEndereco
     });
 
     await repo.save(cliente);

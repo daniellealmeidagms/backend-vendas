@@ -17,7 +17,7 @@ export default class Aquisicao {
 
   // Atributos
   @Column({ type: 'timestamptz' })
-  dataHoraAquisicao: Date;
+  dataHoraAquisicao: string;
 
   @Column({ nullable: true })
   formaPagamento: string;
@@ -32,5 +32,6 @@ export default class Aquisicao {
   constructor() {
     this.id = uuid();
     this.ativo = true;
+    this.dataHoraAquisicao = new Date().toISOString();
   }
 }

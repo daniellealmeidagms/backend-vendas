@@ -1,7 +1,7 @@
 import { AppDataSource } from "@database/datasource";
 import Endereco from "@database/models/Endereco";
 
-type EnderecoRequest = {
+type CreateEnderecoRequest = {
   cep: string;
   logradouro: string;
   complemento: string;
@@ -12,8 +12,19 @@ type EnderecoRequest = {
 
 export class CreateEnderecoService {
 
-  async execute({ cep, logradouro, complemento, bairro, localidade, uf }: EnderecoRequest ): Promise<Endereco> {
+  async execute({ 
+    cep, 
+    logradouro, 
+    complemento, 
+    bairro, 
+    localidade, 
+    uf }: CreateEnderecoRequest ): Promise<Endereco|Error> {
+
     const repo = AppDataSource.getRepository(Endereco);
+
+    if (await repo.findOne({ where : { cep, logradouro, bairro, localidade, uf, complemento } })) {
+      return new Error ( "Endereço já cadastrado!");
+    }
 
     const endereco = repo.create({
       cep,
@@ -23,9 +34,6 @@ export class CreateEnderecoService {
       localidade,
       uf
     })
-
-    console.log("passei aqui");
-    console.log(cep);
 
     await repo.save(endereco);
 

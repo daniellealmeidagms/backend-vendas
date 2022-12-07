@@ -16,7 +16,7 @@ export default class Venda {
   fkLojista: string;
 
   // Atributos
-  @Column({ type: 'timestamptz', nullable: true })
+  @Column({ type: 'timestamptz' })
   dataHoraVenda: string;
 
   @Column({ nullable: true })
