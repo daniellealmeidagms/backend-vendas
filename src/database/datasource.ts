@@ -1,13 +1,14 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import Aquisicao from './entities/Aquisicao';
-import Cliente from './entities/Cliente';
-import Endereco from './entities/Endereco';
-import Fornecedor from './entities/Fornecedor';
-import Lojista from './entities/Lojista';
-import Preco from './entities/Preco';
-import Produto from './entities/Produto';
-import Venda from './entities/Venda';
+import Aquisicoes from './models/Aquisicao';
+import Cliente from './models/Cliente';
+import Endereco from './models/Endereco';
+import { Fornecedor } from './models/Fornecedor';
+import Lojista from './models/Lojista';
+import Preco from './models/Preco';
+import Produto from './models/Produto';
+
+//const bruce = new Cachorro();
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -19,14 +20,13 @@ export const AppDataSource = new DataSource({
   synchronize: true,
   logging: true,
   entities: [
-    Aquisicao,
+    Aquisicoes,
     Cliente,
     Endereco,
     Fornecedor,
     Lojista,
     Preco,
     Produto,
-    Venda,
   ],
   subscribers: [],
   migrations: [],
