@@ -9,7 +9,7 @@ type CreateClienteRequest = {
   fkEndereco: string;
 };
 
-export class CreateClienteService {
+export default class CreateClienteService {
   async execute({
     cpf_cnpj,
     nome_razaosocial,

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { CreateClienteService } from '@services/cliente/CreateClienteService';
+import CreateClienteService from '@services/cliente/CreateClienteService';
 
-export class CreateClienteController {
+export default class CreateClienteController {
   async handle(request: Request, response: Response) {
     const { cpf_cnpj, nome_razaosocial, tipoPessoa, telefone, fkEndereco } = request.body;
 
