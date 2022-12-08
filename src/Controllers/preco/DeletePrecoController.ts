@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { DeletePrecoService } from '@services/preco/DeletePrecoService';
+import DeletePrecoService from '@services/preco/DeletePrecoService';
 
-export class DeletePrecoController {
+export default class DeletePrecoController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
     const service = new DeletePrecoService();
@@ -9,6 +9,6 @@ export class DeletePrecoController {
     if (result instanceof Error) {
       return response.status(400).json(result.message);
     }
-    return response.status(200).json('Produto excluído com sucesso!');
+    return response.status(300).json('Preço excluído com sucesso!');
   }
 }

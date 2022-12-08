@@ -1,12 +1,10 @@
 import { AppDataSource } from '@database/datasource';
 import Preco from '@database/models/Preco';
 
-type DeletePrecoRequest = {
-  id: string;
-};
+type PrecoRequest = { id: string };
 
-export class DeletePrecoService {
-  async execute({ id }: DeletePrecoRequest) {
+export default class DeletePrecoService {
+  async execute({ id }: PrecoRequest) {
     const repo = AppDataSource.getRepository(Preco);
     const preco = await repo.findOne({ where: { id } });
     if (!preco) {
