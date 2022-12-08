@@ -1,31 +1,17 @@
-import { AppDataSource } from "src/database/datasource";
+import { AppDataSource } from "@database/datasource";
 import Aquisicao from "@database/models/Aquisicao";
 
-type AquisicaoDeleteRequest = {
-  idInt: number;
-}
+type AquisicaoRequest = { id: string };
 
-export default class DeleteAquisicaoService{
-  async execute({idInt}:AquisicaoDeleteRequest){
+export default class DeleteAquisicaoService {
+  async execute({ id } : AquisicaoRequest) {
     const repo = AppDataSource.getRepository(Aquisicao);
-
-    console.log('Passei aqui');
-    console.log(idInt);
-    
-    const aquisicao = await repo.findOne({ where: { id: idInt } });
-
-    console.log('Passei aqui também');
-    console.log(aquisicao);
-
+    const aquisicao = await repo.findOne({ where: { id } });
     if (!aquisicao) {
-      return new Error('Aquisição não cadastrada!');
+      return new Error('Aquisição não encontrada!');
     }
-
     aquisicao.ativo = false;
-
     await repo.save(aquisicao);
-
-    return "Aquisição excluída com sucesso!";
-
+    return aquisicao;
   }
 }

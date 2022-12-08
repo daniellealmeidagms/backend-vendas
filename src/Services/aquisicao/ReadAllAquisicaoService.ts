@@ -1,4 +1,4 @@
-import { AppDataSource } from "src/database/datasource";
+import { AppDataSource } from "@database/datasource";
 import Aquisicao from "@database/models/Aquisicao";
 
 export default class ReadAllAquisicaoService {
