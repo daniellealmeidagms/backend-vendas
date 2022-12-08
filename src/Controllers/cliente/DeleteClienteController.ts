@@ -1,17 +1,14 @@
+import DeleteClienteService from '@services/cliente/DeleteClienteService';
 import { Request, Response } from 'express';
-import { DeleteClienteService } from '../services/DeleteClienteService';
 
-export class DeleteClienteController {
+export default class DeleteClienteController {
   async handle(request: Request, response: Response) {
-    const { cpf_cnpj } = request.params;
-
+    const { id } = request.params;
     const service = new DeleteClienteService();
-    const result = await service.execute(cpf_cnpj);
-
+    const result = await service.execute({id});
     if (result instanceof Error) {
       return response.status(400).json(result.message);
     }
-
-    return response.status(333).end();
+    return response.status(300).json('Cliente excluído com sucesso!');
   }
 }

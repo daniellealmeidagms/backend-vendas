@@ -1,18 +1,18 @@
+import UpdateClienteService from '@services/cliente/UpdateClienteService';
 import { Request, Response } from 'express';
-import { UpdateClienteService } from '@services/UpdateClienteService';
 
-export class UpdateClienteController {
+export default class UpdateClienteController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const { cpf_cnpj, nome_razaosocial, segmento, telefone, fkEndereco } =
+    const { nome_razaosocial, tipoPessoa, telefone, fkEndereco } =
       request.body;
     const service = new UpdateClienteService();
     const result = await service.execute({
-  cpf_cnpj: string;
-  nome_razaosocial: string;
-  segmento: string;
-  telefone: number;
-  fkEndereco: number;
+      id,
+      nome_razaosocial, 
+      tipoPessoa, 
+      telefone, 
+      fkEndereco,
     });
     if (result instanceof Error) {
       return response.status(400).json(result.message);

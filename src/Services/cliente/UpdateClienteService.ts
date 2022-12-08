@@ -1,26 +1,35 @@
-  import { AppDataSource } from "src/database/datasource";
+  import { AppDataSource } from "@database/datasource";
   import Cliente from "@database/models/Cliente";
 
-  AppDataSource.getRepository
-
   type ClienteUpdateRequest = {
-  cpf_cnpj: string;
+    id: string,
     nome_razaosocial: string;
-    segmento: string;
+    tipoPessoa: string;
     telefone: number;
-    fkEndereco: number;
+    fkEndereco: string;
   }
 
-  export class UpdateClienteoService {
-    async execute({ cpf_cnpj, nome_razaosocial, segmento, telefone, fkEndereco }: ClienteUpdateRequest) {
+  export default class UpdateClienteService {
+    async execute({ 
+      id,
+      nome_razaosocial, 
+      tipoPessoa, 
+      telefone, 
+      fkEndereco 
+    }: ClienteUpdateRequest): Promise<Cliente | Error>{
+      
       const repo = AppDataSource.getRepository(Cliente);
 
-      const cliente = await repo.findOne({});
+      const cliente = await repo.findOne({where: {id}});
 
       if (!cliente) {
-        return new Error("Cliente does not exists");
+        return new Error("Cliente não encontrado!");
       }
-      cliente.cpf_cnpj = cpf_cnpj ? cpf_cnpj : cliente.cpf_cnpj;
+
+      cliente.nome_razaosocial = nome_razaosocial ? nome_razaosocial : cliente.nome_razaosocial;
+      cliente.tipoPessoa = tipoPessoa ? tipoPessoa : cliente.tipoPessoa;
+      cliente.telefone = telefone ? telefone : cliente.telefone;
+      cliente.fkEndereco = fkEndereco ? fkEndereco : cliente.fkEndereco;
 
       await repo.save(cliente);
 

@@ -1,14 +1,17 @@
-import { AppDataSource } from '../database/datasource';
-import Cliente from '../database/entities/Cliente';
+import { AppDataSource } from '@database/datasource';
+import Cliente from '@database/models/Cliente';
 
-AppDataSource.getRepository;
+type ClienteRequest = { id: string };
 
-export class DeleteClienteService {
-  async execute(cpf_cnpj: string) {
+export default class DeleteClienteService {
+  async execute( { id } : ClienteRequest ) {
     const repo = AppDataSource.getRepository(Cliente);
-    if (!(await repo.find({ where: { cpf_cnpj: cpf_cnpj } }))) {
-      return new Error('Cliente does not exixts!');
+    const cliente = await repo.findOne({ where: { id } });
+    if (!cliente) {
+      return new Error('Cliente não encontrado!');
     }
-    await repo.delete(cpf_cnpj);
+    cliente.ativo = false;
+    await repo.save(cliente);
+    return cliente;
   }
 }
