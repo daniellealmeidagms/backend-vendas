@@ -1,7 +1,7 @@
-import { DeleteFornecedorService } from "@services/fornecedor/DeleteFornecedorService";
+import DeleteFornecedorService from "@services/fornecedor/DeleteFornecedorService";
 import { Request, Response } from 'express'
 
-export class DeleteFornecedoresControler {
+export default class DeleteFornecedorControler {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
     const service = new DeleteFornecedorService();
@@ -9,6 +9,6 @@ export class DeleteFornecedoresControler {
     if (result instanceof Error) {
       return response.status(400).json(result.message);
     }
-    return response.status(200).json('Fornecedor excluído com sucesso!');
+    return response.status(300).json('Fornecedor excluído com sucesso!');
     }
 }
