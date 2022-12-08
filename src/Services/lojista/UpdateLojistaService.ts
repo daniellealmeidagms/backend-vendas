@@ -17,19 +17,22 @@ export default class CreateLojistaService {
     telefone,
     fkEndereco,
   }: UpdateLojistaRequest): Promise<Lojista | Error> {
+    
     const repo = AppDataSource.getRepository(Lojista);
 
     const lojista = await repo.findOne({ where: { id } });
+    
     if (!lojista) {
-      return new Error('Preço não encontrado.');
+      return new Error('Lojista não encontrado!');
     }
-    //lojista.cnpj = cnpj ? cnpj : lojista.cnpj;
+
     lojista.razaoSocial = razaoSocial ? razaoSocial : lojista.razaoSocial;
     lojista.segmento = segmento ? segmento : lojista.segmento;
     lojista.telefone = telefone ? telefone : lojista.telefone;
     lojista.fkEndereco = fkEndereco ? fkEndereco : lojista.fkEndereco;
 
     await repo.save(lojista);
+
     return lojista;
   }
 }
